@@ -33,6 +33,7 @@ const Features = () => {
                 key={feature.title}
                 icon={feature.icon}
                 description={feature.description}
+                variant={feature.variant}
               />
             ))}
           </ul>
@@ -42,10 +43,10 @@ const Features = () => {
   );
 };
 
-const FeatureItem = ({ title, icon, description }: FeatureProps) => {
+const FeatureItem = ({ title, icon, description, variant }: FeatureProps) => {
   return (
     <li className="flex w-full flex-1 flex-col items-start">
-      <div className="rounded-full p-4 lg:p-7 bg-green-50">
+      <div className={`rounded-full p-4 lg:p-7 ${variant}`}>
         <Image src={icon} alt="map" width={28} height={28} />
       </div>
       <h2 className="bold-20 lg:bold-32 mt-5 capitalize">{title}</h2>
@@ -60,6 +61,7 @@ type FeatureProps = {
   title: string;
   icon: string;
   description: string;
+  variant: string;
 };
 
 export default Features;
